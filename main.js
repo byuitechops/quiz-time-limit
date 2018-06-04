@@ -5,7 +5,7 @@ const asyncLib = require('async');
 module.exports = (course, stepCallback) => {
 
     function checkQuiz(quiz, checkQuizCb) {
-        // Check if the time limit is the Brightspace default
+        // Check if the time limit is the Brightspace default(minutes)
         if (quiz.time_limit === 120) {
             // Remove the time limit and push the quiz to Canvas
             var oldTimeLimit = quiz.time_limit;
