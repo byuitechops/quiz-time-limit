@@ -1,7 +1,7 @@
 {
-  "name": "child-template",
+  "name": "quiz-time-limit",
   "version": "1.0.0",
-  "description": "Put your child module's description here",
+  "description": "Turn off time limit on quizzes in Canvas if the quiz does not have a time limit in D2l. Else, match the time limits.",
   "main": "main.js",
   "dependencies": {
     "canvas-api-wrapper": "^3.2.0",
@@ -18,13 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/byuitechops/child-template.git"
+    "url": "git+https://github.com/byuitechops/quiz-time-limit.git"
   },
-  "author": "Zachary Williams, Daniel Green",
+  "author": "Cal Wilson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/byuitechops/child-template/issues"
+    "url": "https://github.com/byuitechops/quiz-time-limit/issues"
   },
-  "homepage": "https://github.com/byuitechops/child-template#readme",
+  "homepage": "https://github.com/byuitechops/quiz-time-limit#readme",
   "childType": "postImport"
 }
