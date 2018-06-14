@@ -7,8 +7,8 @@ module.exports = (course, callback) => {
     tap.test('child-template', (test) => {
 
         function checkQuiz(quiz, checkQuizCb) {
-            var d2lQuiz;
             if (quiz.time_limit === 120) {
+                var d2lQuiz;
                 // Check if the quiz should have a time limit of 120.
                 d2lQuiz = d2lQuizzes.find(d2lQuizObj => {
                     return d2lQuizObj.name.toLowerCase() === quiz.title.toLowerCase();
