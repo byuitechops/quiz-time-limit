@@ -1,8 +1,8 @@
 # Quiz Time Limit
 ### *Package Name*: quiz-time-limit
 ### *Child Type*: post-import
-### *Platform*: <online/pathway/campus/all> (Ask Zach or Daniel about this)
-### *Required*: <Required/Recommended/Optional> (Ask Zach or Daniel about this)
+### *Platform*: All
+### *Required*: Required
 
 This child module is built to be used by the Brigham Young University - Idaho D2L to Canvas Conversion Tool. It utilizes the standard `module.exports => (course, stepCallback)` signature and uses the Conversion Tool's standard logging functions. You can view extended documentation [Here](https://github.com/byuitechops/d2l-to-canvas-conversion-tool/tree/master/documentation).
 
@@ -25,16 +25,15 @@ This child module should be ran after all other quiz related modules have finish
 
 Describe in steps how the module accomplishes its goals.
 
-1. Check if the platform is valid.
-2. Get the D2L quiz xml files.
-3. Map each D2L quiz file into an Array of objects that contain the quiz's name and enforced time limit.
-4. Get all the quizzes from Canvas.
-5. Asynchronously loop through the quizzes calling the checkQuiz function on each quiz.
-6. Check if the Canvas quiz has a time limit of 120 minutes. 
-7. If it does, find the correct quiz XML file and see if the time limit is enforced. If it's enforced, keep the time limit and go on to the next quiz. If it's not enforced, remove the time limit and go on to the next quiz.
-8. If the Canvas quiz does not have a time limit of 120, keep the time limit and go on to the next quiz.
-9. After all quizzes have finished, check for errors.
-10. Move onto the next module.
+1. Get the D2L quiz xml files.
+2. Map each D2L quiz file into an Array of objects that contain the quiz's name and enforced time limit.
+3. Get all the quizzes from Canvas.
+4. Asynchronously loop through the quizzes calling the checkQuiz function on each quiz.
+5. Check if the Canvas quiz has a time limit of 120 minutes. 
+6. If it does, find the correct quiz XML file and see if the time limit is enforced. If it's enforced, keep the time limit and go on to the next quiz. If it's not enforced, remove the time limit and go on to the next quiz.
+7. If the Canvas quiz does not have a time limit of 120, keep the time limit and go on to the next quiz.
+8. After all quizzes have finished, check for errors.
+9. Move onto the next module.
 
 ## Log Categories
 

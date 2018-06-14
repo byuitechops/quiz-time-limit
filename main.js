@@ -67,23 +67,23 @@ module.exports = (course, stepCallback) => {
      * START HERE
      ************************************/
 
-    // Check if the platform is valid
-    var validPlatforms = ['online', 'pathway'];
-    if (!validPlatforms.includes(course.settings.platform)) {
-        course.message('Invalid platform. Skipping child module');
-        stepCallback(null, course);
-        return;
-    }
-    // Get all the quizzes xml files
+    // Get all the quizzes/survey xml files
     var d2lQuizFiles = course.content.filter(file => {
-        return file.name.includes('quiz_d2l');
+        return file.name.includes('quiz_d2l') || file.name.includes('survey_d2l');
     });
     // Make them into objects
     var d2lQuizzes = d2lQuizFiles.map(quizFile => {
-        return {
-            name: quizFile.dom('assessment').attr('title') || undefined,
-            enforceTimeLimit: quizFile.dom('assess_procextension').html().match(/<d2l_2p0:enforce_time_limit>.+>/g) || undefined
-        };
+        if (quizFile.name.includes('survey_d2l')) {
+            return {
+                name: quizFile.dom('assessment').attr('title') || undefined,
+                enforceTimeLimit: ['no'] // D2l surveys cannot have time limits
+            };
+        } else {
+            return {
+                name: quizFile.dom('assessment').attr('title') || undefined,
+                enforceTimeLimit: quizFile.dom('assess_procextension').html().match(/<d2l_2p0:enforce_time_limit>.+>/g) || undefined
+            };
+        }
     });
     // Next get all the quizzes from Canvas
     canvas.get(`https://byui.instructure.com/api/v1/courses/${course.info.canvasOU}/quizzes`, (err, quizzes) => {
