@@ -29,8 +29,8 @@ module.exports = (course, stepCallback) => {
 
                 }
             } else {
-                // Quiz doesn't have a title in the XML file
-                console.log('Error: Quiz does not have a title in the XML file');
+                // D2l Quiz doesn't  match a Canvas Quiz title
+                console.log('Error: A D2l quiz title does not match the Canvas Quiz Title');
             }
             // Remove the time limit and push the quiz to Canvas
             var oldTimeLimit = quiz.time_limit;

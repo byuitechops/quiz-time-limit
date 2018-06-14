@@ -54,8 +54,7 @@ module.exports = (course, callback) => {
 
                     }
                 } else {
-                    // Quiz doesn't have a title in the XML file
-                    console.log(quiz.title);
+                    // D2l Quiz doesn't  match a Canvas Quiz title
                     tap.fail('Error: A D2l quiz title does not match the Canvas Quiz Title');
                 }
                 checkQuizCb(null);
