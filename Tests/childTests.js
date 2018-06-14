@@ -64,7 +64,7 @@ module.exports = (course, callback) => {
                 if (typeof quiz.time_limit === 'number' && (quiz.time_limit !== 120 || quiz.time_limit !== null)) {
                     tap.pass();
                 } else {
-                    tap.fail(typeof quiz.time_limit, quiz.time_limit);
+                    tap.fail('Error: The Canvas quiz time limit is not a number or the time limit is 120/null:', typeof quiz.time_limit, quiz.time_limit);
                 }
                 checkQuizCb(null);
             }
